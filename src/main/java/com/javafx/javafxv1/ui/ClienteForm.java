@@ -5,7 +5,6 @@ import com.javafx.javafxv1.model.Cliente;
 import com.javafx.javafxv1.service.ClienteService;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.swing.*;
@@ -49,7 +48,6 @@ public class ClienteForm extends JFrame {
 
     private Cliente clienteAtual = null;
 
-    @Autowired
     public ClienteForm(ClienteService clienteService, Validator validator) {
         this.clienteService = clienteService;
         this.validator = validator;

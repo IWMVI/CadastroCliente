@@ -3,7 +3,6 @@ package com.javafx.javafxv1.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javafx.javafxv1.model.Cliente;
@@ -14,22 +13,12 @@ public class ClienteService {
 
     private final ClienteRepository clienteRepository;
 
-    @Autowired
     public ClienteService(ClienteRepository clienteRepository) {
         this.clienteRepository = clienteRepository;
     }
 
     public Cliente salvar(Cliente cliente) {
         return clienteRepository.save(cliente);
-    }
-
-    public Cliente atualizar(Cliente cliente) {
-        Optional<Cliente> existente = clienteRepository.findByCpf(cliente.getCpf());
-        if (existente.isPresent()) {
-            return clienteRepository.save(cliente);
-        } else {
-            throw new IllegalArgumentException("Cliente não encontrado para atualização.");
-        }
     }
 
     public List<Cliente> listar() {
